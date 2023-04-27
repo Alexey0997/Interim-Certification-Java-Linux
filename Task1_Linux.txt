@@ -1,0 +1,327 @@
+Задание
+1)   Используйте команды операционной системы Linux и создайте две новых директории
+– «Игрушки для школьников» и «Игрушки для дошколят»
+
+СОЗДАДИМ ДИРЕКТОРИЮ "ИГРУШКИ ДЛЯ ШКОЛЬНИКОВ"
+alexey@alexey-VB:~/ICW$ mkdir Игрушки_для_школьников
+
+ПРОВЕРКА
+alexey@alexey-VB:~/ICW$ tree
+.
+└── Игрушки_для_школьников
+1 directory, 0 files
+
+
+СОЗДАДИМ ДИРЕКТОРИЮ "ИГРУШКИ ДЛЯ ДОШКОЛЯТ"
+alexey@alexey-VB:~/ICW$ mkdir Игрушки_для_дошколят
+
+ПРОВЕРКА
+alexey@alexey-VB:~/ICW$ tree
+.
+├── Игрушки_для_дошколят
+└── Игрушки_для_школьников
+2 directories, 0 files
+
+
+2)   Создайте в директории «Игрушки для школьников» текстовые файлы - «Роботы», «Конструктор», «Настольные игры»
+
+ЗАПОЛНИМ ДИРЕКТОРИЮ УКАЗАННЫМИ ФАЙЛАМИ
+alexey@alexey-VB:~/ICW$ cat > Игрушки_для_школьников/Роботы
+alexey@alexey-VB:~/ICW$ tree
+.
+├── Игрушки_для_дошколят
+└── Игрушки_для_школьников
+    └── Роботы
+2 directory, 1 file
+
+alexey@alexey-VB:~/ICW$ cat > Игрушки_для_школьников/Конструктор
+alexey@alexey-VB:~/ICW$ tree
+.
+├── Игрушки_для_дошколят
+└── Игрушки_для_школьников
+    ├── Конструктор
+    └── Роботы
+2 directory, 2 files
+
+alexey@alexey-VB:~/ICW$ cat > Игрушки_для_школьников/Настольные_игры
+alexey@alexey-VB:~/ICW$ tree
+.
+├── Игрушки_для_дошколят
+└── Игрушки_для_школьников
+    ├── Конструктор
+    ├── Настольные_игры
+    └── Роботы
+2 directory, 3 files
+
+
+3)    Создайте в директории «Игрушки для дошколят» текстовые файлы «Мягкие игрушки», «Куклы», «Машинки»
+
+ЗАПОЛНИМ ДИРЕКТОРИЮ ФАЙЛАМИ
+alexey@alexey-VB:~/ICW$ cat > Игрушки_для_дошколят/Мягкие_игрушки
+alexey@alexey-VB:~/ICW$ tree
+.
+├── Игрушки_для_дошколят
+│   └── Мягкие_игрушки
+└── Игрушки_для_школьников
+    ├── Конструктор
+    ├── Настольные_игры
+    └── Роботы
+2 directories, 4 files
+
+lexey@alexey-VB:~/ICW$ cat > Игрушки_для_дошколят/Куклы
+alexey@alexey-VB:~/ICW$ tree
+.
+├── Игрушки_для_дошколят
+│   ├── Куклы
+│   └── Мягкие_игрушки
+└── Игрушки_для_школьников
+    ├── Конструктор
+    ├── Настольные_игры
+    └── Роботы
+2 directories, 5 files
+
+alexey@alexey-VB:~/ICW$ cat > Игрушки_для_дошколят/Машинки
+alexey@alexey-VB:~/ICW$ tree
+.
+├── Игрушки_для_дошколят
+│   ├── Куклы
+│   ├── Машинки
+│   └── Мягкие_игрушки
+└── Игрушки_для_школьников
+    ├── Конструктор
+    ├── Настольные_игры
+    └── Роботы
+2 directories, 6 files
+
+4)   Объединить 2 директории в одну «Имя Игрушки»
+
+ПРОВЕРИМ ИСХОДНОЕ СОСТОЯНИЕ
+alexey@alexey-VB:~/ICW$ ls -l
+итого 8
+drwxrwxr-x 2 alexey alexey 4096 апр 26 15:16 Игрушки_для_дошколят
+drwxrwxr-x 2 alexey alexey 4096 апр 26 15:00 Игрушки_для_школьников
+
+
+СОЗДАДИМ ДИРЕКТОРИЮ "ИМЯ ИГРУШКИ"
+alexey@alexey-VB:~/ICW$ mkdir Имя_игрушки
+
+ПРОВЕРКА
+alexey@alexey-VB:~/ICW$ tree
+.
+├── Имя_игрушки
+├── Игрушки_для_дошколят
+│   ├── Куклы
+│   ├── Машинки
+│   └── Мягкие_игрушки
+└── Игрушки_для_школьников
+    ├── Конструктор
+    ├── Настольные_игры
+    └── Роботы
+3 directories, 6 files
+
+ОБЪЕДИНИМ ДВЕ ДИРРЕКТОРИИ В РАМКАХ ТРЕТЬЕЙ
+
+alexey@alexey-VB:~/ICW$ mv Игрушки_для_дошколят/ Игрушки_для_школьников Имя_игрушки/
+alexey@alexey-VB:~/ICW$ tree
+.
+└── Имя_игрушки
+    ├── Игрушки_для_дошколят
+    │   ├── Куклы
+    │   ├── Машинки
+    │   └── Мягкие_игрушки
+    └── Игрушки_для_школьников
+        ├── Конструктор
+        ├── Настольные_игры
+        └── Роботы
+3 directories, 6 files
+
+5)   Переименовать директорию «Имя Игрушки» в «Игрушки»
+
+ПРИСВОИМ ДИРЕКТОРИИ НАИМЕНОВАНИЕ "Игрушки"
+alexey@alexey-VB:~/ICW$ mv Имя_игрушки/ Игрушки
+
+ПРОВЕРКА
+alexey@alexey-VB:~/ICW$ tree -g
+[alexey  ]  .
+└── [alexey  ]  Игрушки
+    ├── [alexey  ]  Игрушки_для_дошколят
+    │   ├── [alexey  ]  Куклы
+    │   ├── [alexey  ]  Машинки
+    │   └── [alexey  ]  Мягкие_игрушки
+    └── [alexey  ]  Игрушки_для_школьников
+        ├── [alexey  ]  Конструктор
+        ├── [alexey  ]  Настольные_игры
+        └── [alexey  ]  Роботы
+3 directories, 6 files
+
+6)   Просмотреть содержимое каталога «Игрушки».
+
+ПРОВЕРИМ СОДЕРЖИМОЕ
+alexey@alexey-VB:~/ICW$ cd Игрушки
+alexey@alexey-VB:~/ICW/Игрушки$ ls -l
+итого 8
+drwxrwxr-x 2 alexey alexey 4096 апр 26 15:16 Игрушки_для_дошколят
+drwxrwxr-x 2 alexey alexey 4096 апр 26 15:00 Игрушки_для_школьников
+
+ПРОВЕРКА
+alexey@alexey-VB:~/ICW$ tree -g
+[alexey  ]  .
+└── [alexey  ]  Игрушки
+    ├── [alexey  ]  Игрушки_для_дошколят
+    │   ├── [alexey  ]  Куклы
+    │   ├── [alexey  ]  Машинки
+    │   └── [alexey  ]  Мягкие_игрушки
+    └── [alexey  ]  Игрушки_для_школьников
+        ├── [alexey  ]  Конструктор
+        ├── [alexey  ]  Настольные_игры
+        └── [alexey  ]  Роботы
+3 directories, 6 files
+
+7)   Установить и удалить snap-пакет. (Любой, какой хотите)
+
+ПРОВЕРИМ СПИСОК ПАКЕТОВ
+alexey@alexey-VB:~$ snap list
+Название                   Версия            Правка  Канал            Издатель    Примечание
+bare                       1.0               5       latest/stable    canonical✓  base
+core20                     20230308          1852    latest/stable    canonical✓  base
+core22                     20230325          607     latest/stable    canonical✓  base
+firefox                    112.0.1-1         2579    latest/stable/…  mozilla✓    -
+gnome-3-38-2004            0+git.6f39565     140     latest/stable/…  canonical✓  -
+gnome-42-2204              0+git.e7d97c7     87      latest/stable    canonical✓  -
+gtk-common-themes          0.1-81-g442e511   1535    latest/stable/…  canonical✓  -
+snap-store                 41.3-66-gfe1e325  638     latest/stable/…  canonical✓  -
+snapd                      2.58.2            18357   latest/stable    canonical✓  snapd
+snapd-desktop-integration  0.1               57      latest/stable/…  canonical✓  -
+
+ПОИСК НУЖНОГО ПАКЕТА
+alexey@alexey-VB:~$ snap search postman
+Название         Версия   Издатель          Примечание  Описание
+postman          10.13.0  postman-inc✓      -           API Development Environment
+restfox          0.0.8    flawid            -           Lightweight REST / HTTP Client
+my-electron-app  2.3.0    starship-postman  -           A Starship port of Electron's hello world app
+
+УСТАНОВИМ ПАКЕТ POSTMAN
+alexey@alexey-VB:~$ sudo snap install postman
+postman (v10/stable) 10.13.0 от Postman, Inc. (postman-inc✓) установлен
+
+ПРОВЕРКА
+alexey@alexey-VB:~$ snap list
+Название                   Версия            Правка  Канал            Издатель      Примечание
+bare                       1.0               5       latest/stable    canonical✓    base
+core18                     20230320          2721    latest/stable    canonical✓    base
+core20                     20230308          1852    latest/stable    canonical✓    base
+core22                     20230325          607     latest/stable    canonical✓    base
+firefox                    112.0.1-1         2579    latest/stable/…  mozilla✓      -
+gnome-3-38-2004            0+git.6f39565     140     latest/stable/…  canonical✓    -
+gnome-42-2204              0+git.e7d97c7     87      latest/stable    canonical✓    -
+gtk-common-themes          0.1-81-g442e511   1535    latest/stable/…  canonical✓    -
+postman                    10.13.0           204     v10/stable       postman-inc✓  -
+snap-store                 41.3-66-gfe1e325  638     latest/stable/…  canonical✓    -
+snapd                      2.58.2            18357   latest/stable    canonical✓    snapd
+snapd-desktop-integration  0.1               57      latest/stable/…  canonical✓    -
+
+УДАЛЕНИЕ ПАКЕТА
+alexey@alexey-VB:~$ snap remove postman
+postman удалён
+
+ПРОВЕРКА
+alexey@alexey-VB:~$ snap list
+Название                   Версия            Правка  Канал            Издатель    Примечание
+bare                       1.0               5       latest/stable    canonical✓  base
+core18                     20230320          2721    latest/stable    canonical✓  base
+core20                     20230308          1852    latest/stable    canonical✓  base
+core22                     20230325          607     latest/stable    canonical✓  base
+firefox                    112.0.1-1         2579    latest/stable/…  mozilla✓    -
+gnome-3-38-2004            0+git.6f39565     140     latest/stable/…  canonical✓  -
+gnome-42-2204              0+git.e7d97c7     87      latest/stable    canonical✓  -
+gtk-common-themes          0.1-81-g442e511   1535    latest/stable/…  canonical✓  -
+snap-store                 41.3-66-gfe1e325  638     latest/stable/…  canonical✓  -
+snapd                      2.58.2            18357   latest/stable    canonical✓  snapd
+snapd-desktop-integration  0.1               57      latest/stable/…  canonical✓  -
+
+8)   Добавить произвольную задачу для выполнения каждые 3 минуты (Например, запись в текстовый файл
+чего-то или копирование из каталога А в каталог Б).
+
+СОЗДАДИМ СИСТЕМУ ЛОГИРОВАНИЯ ФАЙЛОВ, С АВТОМАТИЧЕСКИМ БЭКАПОМ КАЖДЫЕ ТРИ МИНУТЫ
+ПРОВЕРИМ НАСТРОЙКИ CRON
+alexey@alexey-VB:~/ICW$ crontab -l
+no crontab for alexey
+
+ДОБАВИМ ЗАДАЧИ ДЛЯ КАЖДОГО ФАЙЛА, С ВЫПОЛНЕНИЕМ КАЖДЫЕ 3 МИНУТЫ
+alexey@alexey-VB:~/ICW$ crontab -e
+
+*/3 * * * * cat /home/alexey/Куклы > /home/alexey/backup.txt
+*/3 * * * * cat /home/alexey/Машинки > /home/alexey/backup.txt
+*/3 * * * * cat /home/alexey/Мягкие_игрушки > /home/alexey/backup.txt
+*/3 * * * * cat /home/alexey/Конструктор > /home/alexey/backup.txt
+*/3 * * * * cat /home/alexey/Настольные_игры > /home/alexey/backup.txt
+*/3 * * * * cat /home/alexey/Роботы > /home/alexey/backup.txt
+
+
+РЕДАКТИРОВАНИЕ ФАЙЛА НАСТРОЙКИ СЛУЖБЫ СИСТЕМНЫХ ЛОГОВ
+alexey@alexey-VB:~/ICW$ sudo nano /etc/rsyslog.d/50-default.conf
+#  Default rules for rsyslog.
+#
+#                       For more information see rsyslog.conf(5) and /etc/rsyslog.conf
+#
+# First some standard log files.  Log by facility.
+#
+auth,authpriv.*                 /var/log/auth.log
+*.*;auth,authpriv.none          -/var/log/syslog
+
+cron.*                          /var/log/cron.log
+
+#daemon.*                       -/var/log/daemon.log
+kern.*                          -/var/log/kern.log
+#lpr.*                          -/var/log/lpr.log
+mail.*                          -/var/log/mail.log
+#user.*                         -/var/log/user.log
+#
+# Logging for the mail system.  Split it up so that
+# it is easy to write scripts to parse these files.
+#
+#mail.info                      -/var/log/mail.info
+#mail.warn                      -/var/log/mail.warn
+
+ПЕРЕЗАПУСК СЛУЖБЫ ЛОГОВ И КРОНА
+alexey@alexey-VB:~/ICW$ sudo service rsyslog restart
+alexey@alexey-VB:~/ICW$ sudo service cron restart
+
+alexey@alexey-VB:~/ICW$ cd -
+/home/alexey
+alexey@alexey-VB:~$ ll
+итого 128
+drwxr-x--- 19 alexey alexey 4096 апр 27 00:00  ./
+drwxr-xr-x  3 root   root   4096 апр 20 11:59  ../
+-rw-rw-r--  1 alexey alexey    0 апр 27 00:06  backup.txt
+
+ПРОВЕРКА ЛОГОВ КРОНА
+alexey@alexey-VB:~$ cat /var/log/cron.log
+lexey@alexey-VB:~/ICW$ cat /var/log/cron.log
+Apr 27 00:04:27 alexey-VB cron[15540]: (CRON) INFO (pidfile fd = 3)
+Apr 27 00:04:27 alexey-VB cron[15540]: (CRON) INFO (Skipping @reboot jobs -- not system startup)
+Apr 27 00:06:03 alexey-VB CRON[15546]: (alexey) CMD (cat /home/alexey/\320\272\321\203\320\272\320\273\321\213 > /home/alexey/backup.txt )
+Apr 27 00:06:03 alexey-VB CRON[15545]: (CRON) info (No MTA installed, discarding output)
+Apr 27 00:09:01 alexey-VB CRON[15562]: (alexey) CMD (cat /home/alexey/\320\272\321\203\320\272\320\273\321\213 > /home/alexey/backup.txt )
+Apr 27 00:09:01 alexey-VB CRON[15561]: (CRON) info (No MTA installed, discarding output)
+Apr 27 00:12:01 alexey-VB CRON[15585]: (alexey) CMD (cat /home/alexey/\320\272\321\203\320\272\320\273\321\213 > /home/alexey/backup.txt )
+Apr 27 00:12:01 alexey-VB CRON[15584]: (CRON) info (No MTA installed, discarding output)
+Apr 27 00:14:37 alexey-VB crontab[15600]: (alexey) BEGIN EDIT (alexey)
+Apr 27 00:15:01 alexey-VB CRON[15606]: (alexey) CMD (cat /home/alexey/\320\272\321\203\320\272\320\273\321\213 > /home/alexey/backup.txt )
+Apr 27 00:15:01 alexey-VB CRON[15605]: (CRON) info (No MTA installed, discarding output)
+Apr 27 00:17:03 alexey-VB CRON[15623]: (root) CMD (   cd / && run-parts --report /etc/cron.hourly)
+Apr 27 00:18:01 alexey-VB CRON[15627]: (alexey) CMD (cat /home/alexey/\320\272\321\203\320\272\320\273\321\213 > /home/alexey/backup.txt )
+Apr 27 00:18:01 alexey-VB CRON[15626]: (CRON) info (No MTA installed, discarding output)
+Apr 27 00:18:58 alexey-VB crontab[15600]: (alexey) REPLACE (alexey)
+Apr 27 00:18:58 alexey-VB crontab[15600]: (alexey) END EDIT (alexey)
+Apr 27 00:19:01 alexey-VB cron[15540]: (alexey) RELOAD (crontabs/alexey)
+Apr 27 00:19:25 alexey-VB crontab[15640]: (alexey) LIST (alexey)
+Apr 27 00:21:01 alexey-VB CRON[15650]: (alexey) CMD (cat /home/alexey/\320\275\320\260\321\201\321\202\320\276\320\273\321\214\320\275\321\213\320\265_\320\270\320\263\321\200\321\213 > /home/alexey/backup.txt)
+Apr 27 00:21:01 alexey-VB CRON[15652]: (alexey) CMD (cat /home/alexey/\320\272\320\276\320\275\321\201\321\202\321\200\321\203\320\272\321\202\320\276\321\200 > /home/alexey/backup.txt)
+Apr 27 00:21:01 alexey-VB CRON[15651]: (alexey) CMD (cat /home/alexey/\320\272\321\203\320\272\320\273\321\213 > /home/alexey/backup.txt )
+Apr 27 00:21:01 alexey-VB CRON[15649]: (alexey) CMD (cat /home/alexey/\321\200\320\276\320\261\320\276\321\202\321\213 > /home/alexey/backup.txt)
+Apr 27 00:21:01 alexey-VB CRON[15653]: (alexey) CMD (cat /home/alexey/\320\274\320\260\321\210\320\270\320\275\320\272\320\270 > /home/alexey/backup.txt)
+Apr 27 00:21:01 alexey-VB CRON[15648]: (CRON) info (No MTA installed, discarding output)
+Apr 27 00:21:01 alexey-VB CRON[15645]: (CRON) info (No MTA installed, discarding output)
+Apr 27 00:21:01 alexey-VB CRON[15644]: (CRON) info (No MTA installed, discarding output)
+Apr 27 00:21:01 alexey-VB CRON[15657]: (alexey) CMD (cat /home/alexey/\320\274\321\217\320\263\320\272\320\270\320\265_\320\270\320\263\321\200\321\203\321\210\320\272\320\270 > /home/alexey/backup.txt)
