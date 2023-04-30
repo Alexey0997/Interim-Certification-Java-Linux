@@ -34,7 +34,7 @@ public class Main {
         shopToys.delToy(5);
         System.out.println(shopToys);
 
-        // МЕТОДЫ ПРОВЕДЕНИЯ ЛОТЕРЕИ ДАННЫХ В ФАЙЛЫ
+        // МЕТОДЫ ФОРМИРОВАНИЯ СПИСКОВ УЧАСТНИКОВ И ПОБЕДИТЕЛЕЙ ЛОТЕРЕИ С ЗАПИСЬЮ В ФАЙЛ
         ToysLottery toysLottery = new ToysLottery(shopToys);
         Recorder winningToys = new Recorder();
         winningToys.lottery(10, toysLottery);
